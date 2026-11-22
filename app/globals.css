@@ -1,0 +1,350 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #0f1117;
+  color: #e6e6e6;
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.chat-header h1 {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.chat-header p {
+  margin: 0.25rem 0 0;
+  color: #8a8f98;
+  font-size: 0.85rem;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem 0.25rem;
+}
+
+.empty {
+  color: #8a8f98;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.message {
+  padding: 0.6rem 0.9rem;
+  border-radius: 10px;
+  max-width: 85%;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.45;
+}
+
+.message.user {
+  align-self: flex-end;
+  background: #2f6feb;
+  color: #fff;
+}
+
+.message.assistant {
+  align-self: flex-start;
+  background: #1c2030;
+}
+
+.message .role {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+  margin-bottom: 0.2rem;
+}
+
+.message p {
+  margin: 0;
+}
+
+.error {
+  color: #ff7b72;
+  font-size: 0.85rem;
+  margin: 0.25rem 0;
+}
+
+.composer {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.composer input {
+  flex: 1;
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid #2c3242;
+  background: #161a24;
+  color: inherit;
+  font-size: 1rem;
+  outline: none;
+}
+
+.composer input:focus {
+  border-color: #2f6feb;
+}
+
+.composer button {
+  padding: 0.65rem 1.1rem;
+  border: none;
+  border-radius: 8px;
+  background: #2f6feb;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.composer button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* Diary */
+.diary {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.nav span,
+.nav a {
+  color: #8a8f98;
+  text-decoration: none;
+}
+
+.nav .active {
+  color: #e6e6e6;
+  font-weight: 600;
+}
+
+.diary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.diary-header h1 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.diary-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.diary-actions button,
+.form-actions button,
+.max-row button,
+.selectors button {
+  padding: 0.5rem 0.9rem;
+  border: 1px solid #2c3242;
+  border-radius: 8px;
+  background: #161a24;
+  color: inherit;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.diary-actions .danger,
+.max-row button.danger {
+  border-color: #5c2b2b;
+  color: #ff7b72;
+}
+
+button.secondary {
+  color: #8a8f98;
+}
+
+.week-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.5rem 0;
+}
+
+.week-tabs button.active {
+  background: #2f6feb;
+  border-color: #2f6feb;
+  color: #fff;
+}
+
+.hint {
+  color: #8a8f98;
+  font-size: 0.85rem;
+}
+
+.program-form fieldset {
+  border: 1px solid #2c3242;
+  border-radius: 10px;
+  margin: 1rem 0;
+  padding: 0.75rem;
+}
+
+.program-form legend {
+  padding: 0 0.5rem;
+}
+
+.program-form .inline-name {
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  outline: none;
+}
+
+.program-name {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  color: #8a8f98;
+}
+
+.program-name input {
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid #2c3242;
+  background: #161a24;
+  color: inherit;
+  font-size: 1rem;
+}
+
+.grid-head,
+.grid-row {
+  display: grid;
+  grid-template-columns: 2fr 70px 70px 2fr;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.grid-head {
+  font-size: 0.75rem;
+  color: #8a8f98;
+}
+
+.grid-head span:not(:first-child) {
+  text-align: center;
+}
+
+.grid-row input {
+  width: 100%;
+}
+
+.diary table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.75rem;
+}
+
+.diary th,
+.diary td {
+  text-align: left;
+  padding: 0.45rem 0.5rem;
+  border-bottom: 1px solid #1c2030;
+  vertical-align: middle;
+}
+
+.diary th {
+  font-size: 0.75rem;
+  color: #8a8f98;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.diary td input {
+  width: 100%;
+  min-width: 60px;
+}
+
+.diary .num {
+  max-width: 110px;
+}
+
+.planned {
+  color: #8ab4ff;
+}
+
+.formula-hint {
+  display: block;
+  font-size: 0.75rem;
+  color: #8a8f98;
+}
+
+tr.logged td:first-child::after {
+  content: " ✓";
+  color: #3fb950;
+}
+
+.maxes h2,
+.today-tab h2,
+.plan-tab h2 {
+  font-size: 1.05rem;
+}
+
+.max-row {
+  display: grid;
+  grid-template-columns: 2fr 120px auto;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.max-row input {
+  width: 100%;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.diary input,
+.diary select {
+  padding: 0.45rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #2c3242;
+  background: #161a24;
+  color: inherit;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.diary input:focus {
+  border-color: #2f6feb;
+}
+
+.selectors {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
